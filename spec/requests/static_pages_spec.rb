@@ -13,17 +13,11 @@ describe "Static pages" do
   end
 
   describe "Help page" do
-
-    it "should have the h1 'Help'" do
-      visit help_path
-      expect(page).to have_content('Help')
-    end
-
-    it "should have the title 'Help'" do
-      visit help_path
-      expect(page).to have_title("Ruby on Rails Tutorial Sample App | Help")
-    end
-  end
+		before {visit help_path}
+			
+		it {should have_content('Help')}
+		it {should have_title(full_title('Help'))}
+	end
 
   describe "About page" do
 
